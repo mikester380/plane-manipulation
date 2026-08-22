@@ -59,7 +59,6 @@ const foldedPlaneProgram = new Program(gl, {
 });
 
 const wavyPlaneProgram = new Program(gl, {
-  cullFace: false,
   uniforms: {
     time: { value: 0.0 },
   },
