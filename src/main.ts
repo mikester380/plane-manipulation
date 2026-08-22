@@ -96,8 +96,6 @@ const wavyPlaneProgram = new Program(gl, {
   fragment: `
     precision mediump float;
 
-    uniform vec2 uMouse;
-
     void main() {
       gl_FragColor = vec4(1.0, 0.5, 0.0, 1.0);
     }
