@@ -133,7 +133,6 @@ window.addEventListener("resize", () => {
 function render(time: number) {
   // for folded plane
   foldedPlaneMesh.rotation.y += 0.01;
-
   // for wavy plane
   wavyPlaneProgram.uniforms.time.value = time / 1000;
 
