@@ -38,7 +38,7 @@ const foldedPlaneProgram = new Program(gl, {
 
     void main() {
       // radius
-      float r = 1.5;
+      float r = 0.475;
       // copy position
       vec3 pos = position;
 
@@ -80,13 +80,13 @@ const wavyPlaneProgram = new Program(gl, {
       // wave equation
       // y = A * sin(kx - wt);
 
-      float oneCycle = PI*2.0;
-      float waveLength = 2.0;
-      float amplitude = 0.07;
-      float frequency = 1.0;
+      float oneCycle = 2.0 * PI;
+      float wavelength = 2.5;
+      float amplitude = 0.06;
+      float frequency = 0.6;
 
       pos.y += amplitude * sin( 
-        (oneCycle * pos.x/waveLength) -
+        (oneCycle * pos.x/wavelength) -
         (oneCycle * frequency) * time
       );
 
@@ -115,6 +115,7 @@ const wavyPlaneMesh = new Mesh(gl, {
 wavyPlaneMesh.position.set(0, -1.8);
 
 const scene = new Transform();
+
 foldedPlaneMesh.setParent(scene);
 wavyPlaneMesh.setParent(scene);
 
@@ -133,6 +134,7 @@ window.addEventListener("resize", () => {
 function render(time: number) {
   // for folded plane
   foldedPlaneMesh.rotation.y += 0.01;
+
   // for wavy plane
   wavyPlaneProgram.uniforms.time.value = time / 1000;
 
